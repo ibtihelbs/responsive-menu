@@ -19,6 +19,10 @@ body {
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 html {
   scroll-padding-top: calc(96px + env(safe-area-inset-top, 0px));
 }
