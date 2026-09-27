@@ -190,7 +190,7 @@ footer {
   color: var(--ink-soft);
   font-size: 0.8rem;
 }
-@media (max-width: 480px) {
+@media (max-width: 1000px) {
   nav {
     justify-content: flex-start;
   }
