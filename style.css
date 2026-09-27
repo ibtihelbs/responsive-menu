@@ -26,7 +26,10 @@ img {
 html {
   scroll-padding-top: calc(96px + env(safe-area-inset-top, 0px));
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 header {
   text-align: center;
   padding: 44px 20px 24px;
@@ -187,7 +190,11 @@ footer {
   color: var(--ink-soft);
   font-size: 0.8rem;
 }
-
+@media (max-width: 480px) {
+  nav {
+    justify-content: flex-start;
+  }
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --wine: #ed2023;
