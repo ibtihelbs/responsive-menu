@@ -1,0 +1,202 @@
+@font-face {
+  font-family: "heading";
+  src: url(./fonts/FelixTitlingMTStdRegular.otf) format("opentype");
+}
+:root {
+  --wine: #ed2023;
+  --olive: #0f490c;
+  --paper: #f6efe2;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Work Sans", sans-serif;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html {
+  scroll-padding-top: calc(96px + env(safe-area-inset-top, 0px));
+}
+
+header {
+  text-align: center;
+  padding: 44px 20px 24px;
+  height: 30%;
+  background-color: black;
+  color: var(--paper);
+}
+header .eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  margin-bottom: 6px;
+  font-family: "heading", sans-serif;
+}
+header h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin: 0 0 8px;
+}
+header p {
+  margin: 0;
+  color: #d8dccf;
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 4px;
+  background: var(--paper);
+  border-bottom: 2px solid var(--paper-dim);
+  padding: 10px 14px;
+  scrollbar-width: none;
+}
+nav::-webkit-scrollbar {
+  display: none;
+}
+nav button {
+  flex: 0 0 auto;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+nav button:hover {
+  background: var(--paper-dim);
+}
+nav button.active {
+  background: var(--wine);
+  color: var(--paper);
+}
+nav button:focus-visible,
+.dish:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+section.course {
+  display: none;
+  animation: fade 0.25s ease;
+}
+section.course.active {
+  display: block;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+section.course > .intro {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0 0 22px;
+  border-left: 3px solid var(--paper);
+  padding-left: 12px;
+}
+
+.dish {
+  padding: 16px 2px;
+  border-bottom: 1px solid var(--paper-dim);
+}
+.dish:last-child {
+  border-bottom: none;
+}
+.dish-top {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.dish-name {
+  font-family: "heading", serif;
+  font-weight: 600;
+  font-size: 1.12rem;
+  color: var(--wine);
+  white-space: nowrap;
+}
+.leader {
+  flex: 1;
+  border-bottom: 2px dotted var(--paper-dim);
+  transform: translateY(-4px);
+}
+.price {
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.desc {
+  margin: 6px 0 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  max-width: 62ch;
+}
+.tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--paper-dim);
+  color: var(--olive);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+footer {
+  text-align: center;
+  padding: 24px 20px 40px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --wine: #ed2023;
+    --olive: #0f490c;
+    --paper: #f6efe2;
+  }
+  body {
+    background: var(--paper);
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1c1815;
+  --paper-dim: #2b251f;
+  --ink: #f0e9dd;
+  --ink-soft: #b3a690;
+}
